@@ -378,7 +378,7 @@ content = 
 content-padding = 0
 content-background = ${root.background}
 content-foreground = #F28FAD
-click-left = $HOME/.config/rofi/powermenu.sh
+click-left = $HOME/.local/bin/powermenu.sh
 
 [settings]
 screenchange-reload = true

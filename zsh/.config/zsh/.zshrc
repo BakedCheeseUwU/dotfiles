@@ -1,5 +1,4 @@
 #!/bin/sh
-export ZDOTDIR=$HOME/.config/zsh
 HISTFILE=~/.cache/zsh/history
 setopt appendhistory
 
@@ -52,7 +51,7 @@ bindkey -s '^f' 'zi^M'
 bindkey -s '^s' 'ncdu^M'
 # bindkey -s '^n' 'nvim $(fzf)^M'
 # bindkey -s '^v' 'nvim\n'
-bindkey -s '^z' 'zi^M'
+# bindkey -s '^z' 'zi^M'
 bindkey '^[[P' delete-char
 bindkey "^p" up-line-or-beginning-search # Up
 bindkey "^n" down-line-or-beginning-search # Down
@@ -77,8 +76,6 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 
-# Speedy keys
-xset r rate 210 40
 
 # Environment variables set everywhere
 export EDITOR="nvim"

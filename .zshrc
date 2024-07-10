@@ -27,6 +27,8 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
+zinit ice lucid wait'0'
+zinit light joshskidmore/zsh-fzf-history-search
 
 # Add in snippets
 zinit snippet OMZP::git
@@ -37,6 +39,9 @@ zinit snippet OMZP::sudo
 autoload -Uz compinit && compinit
 
 zinit cdreplay -q
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Keybindings
 bindkey '^k' history-search-backward
@@ -64,21 +69,23 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 # Aliases
 alias ls='ls --color'
 
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# Shell integrations
-eval "$(fzf --zsh)"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
 #Environment Variables
 export PATH="$HOME/.local/bin/:$PATH"
 export PATH="$HOME/.cargo/bin/:$PATH"
+export PATH="$HOME/.local/bin/:$PATH"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# bun completions
+[ -s "/home/bakedcheese/.bun/_bun" ] && source "/home/bakedcheese/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# fzf
+source <(fzf --zsh)
 

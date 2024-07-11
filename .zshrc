@@ -68,6 +68,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
 alias ls='ls --color'
+alias c='clear'
 
 #Environment Variables
 export PATH="$HOME/.local/bin/:$PATH"

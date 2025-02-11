@@ -69,11 +69,13 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 # Aliases
 alias ls='ls --color'
 alias c='clear'
+alias p='pwd;ls-CF'
 
 #Environment Variables
 export PATH="$HOME/.local/bin/:$PATH"
 export PATH="$HOME/.cargo/bin/:$PATH"
 export PATH="$HOME/.local/bin/:$PATH"
+# export PATH="$HOME/anaconda3/bin:$PATH"  # commented out by conda initialize
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -89,4 +91,26 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # fzf
 source <(fzf --zsh)
+#zoxide
+eval "$(zoxide init zsh)"
+
+#nvim man pager
+if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
+  export MANPAGER="/usr/local/bin/nvr -c 'Man!' -o -"
+fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/bakedcheese/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/bakedcheese/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/bakedcheese/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/bakedcheese/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
